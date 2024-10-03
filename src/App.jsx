@@ -1,15 +1,17 @@
-import { useState } from 'react'
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <div>
-    <h1>
-      Lahiru
-    </h1>
+   <div className="p-4">
+      <Button>Click</Button>
+      <div>
+        <Badge>Hello</Badge>
+      </div>
    </div>
+   
   )
 }
 
-export default App
+export default App;
+ 
