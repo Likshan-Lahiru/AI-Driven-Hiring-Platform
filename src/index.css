@@ -55,8 +55,8 @@
   }
   
   .hero {
-    background: url("/assets/home/hero-3.png");
+    background: url("assets/home/hero-3.png");
     background-position: center;
     background-size: cover;
-  }
+  } 
 }
