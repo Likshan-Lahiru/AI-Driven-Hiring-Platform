@@ -23,25 +23,36 @@ function JobSection() {
         }
     ];
 
+   
+
     return ( 
-        <section className="py-8">
-            <Card>
-        <CardHeader>
-         <CardTitle>Intern - Software Engineer</CardTitle>
-        </CardHeader>
-      <CardContent></CardContent>
-      <CardFooter className="gap-x-4">
-        <div className="flex items-center gap-x-2">
-          <Briefcase />
-          <span>Full-time</span>
+    <section className="py-8 grid gap-y-4">
+        <h2>Available Jobs</h2>
+        <div className="mt-4 flex-col gap-y-8">
+        {
+            jobs.map((job) => {
+                return (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>{job.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent></CardContent>
+                      <CardFooter className="gap-x-4">
+                        <div className="flex items-center gap-x-2">
+                          <Briefcase />
+                          <span>{job.type}</span>
+                        </div>
+                        <div className="flex items-center gap-x-2">
+                          <MapPin />
+                          <span>{job.location}</span>
+                        </div>
+                      </CardFooter>
+                    </Card>
+                );  
+        })}    
         </div>
-        <div className="flex items-center gap-x-2">
-          <MapPin />
-          <span>Remote</span>
-        </div>
-      </CardFooter>
-    </Card>
-        </section>
+        
+   </section>
      );
 }
 
