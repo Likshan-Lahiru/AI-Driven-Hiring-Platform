@@ -20,6 +20,12 @@ function JobSection() {
             title: "DevOps Engineer",
             type: "Full Time",
             location: "Panadura, Sri Lanka"
+        },
+        {
+            _id: "new4",
+            title: "Project Manager",
+            type: "Full Time",
+            location: "Kalutara"
         }
     ];
 
