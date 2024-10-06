@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "./components/shared/Navigation";
 import Hero  from "./Hero";
+import JobSection from "./JobSection";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
      <Navigation />
      <div>
       <Hero />
+      <JobSection />
      </div>
   </main>
    
