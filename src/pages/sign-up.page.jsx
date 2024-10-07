@@ -1,9 +1,11 @@
+import Navigation from "@/components/shared/Navigation";
+
 function SignUpPage() {
     return ( 
         <main className="container px-4">
-            <div>
+            <Navigation />
             <h2>SignUp page</h2>
-            </div>
+            
         </main>
         
      );
