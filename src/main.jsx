@@ -1,15 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import HomePage from './pages/home.page.jsx'
+import HomePage from './pages/home/home.page'
 import SignInPage from './pages/sign-in.page'
 import SignUpPage from './pages/sign-up.page'
+import "./index.css";
+import JobPage from './pages/job/job.page'
 
 const router = createBrowserRouter([
   {
     path:"/",
     element: <HomePage />,  
+  },
+  {
+    path: "/job",
+    element: <JobPage /> 
   },
   {
     path: "/sign-in",

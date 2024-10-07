@@ -1,9 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import Navigation from "./components/shared/Navigation";
-import Hero  from "./pages/components/Hero";
-import JobSection from "./pages/components/JobSection";
-import HomePage from "./pages/home.page";
+import HomePage from "./pages/home/home.page";
 
 function App() {
   return (

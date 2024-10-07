@@ -1,7 +1,6 @@
+import JobSection from "./components/JobSection";
 import Navigation from "@/components/shared/Navigation";
 import Hero from "./components/Hero";
-import JobSection from "./components/JobSection";
-
 function HomePage() {
     return ( 
    <main className="container px-4">
