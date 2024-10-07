@@ -1,8 +1,10 @@
 import { Card, CardHeader,CardContent,CardTitle,CardFooter} from "@/components/ui/card";
 import { Briefcase, MapPin} from "lucide-react";
+import { Link } from "react-router-dom";
 function JobCard(props) {
     return (  
-        <Card>
+        <Link to={`/job/${props.job._id}`}>
+         <Card>
             <CardHeader>
                 <CardTitle>{props.job.title}</CardTitle>
             </CardHeader>
@@ -17,7 +19,8 @@ function JobCard(props) {
                       <span>{props.job.location}</span>
                    </div>
             </CardFooter>
-        </Card>
+         </Card>
+        </Link>
     );
 }
 

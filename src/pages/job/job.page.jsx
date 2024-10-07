@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { Briefcase, MapPin } from "lucide-react";
+import Navigation from "@/components/shared/Navigation";
 
 function JobPage() {
     const jobs = [
@@ -42,8 +44,25 @@ function JobPage() {
 
 
     return ( 
+        
         <main className="container px-4">
-            <h2>Job Page</h2>
+        <Navigation />
+             <div>
+        <h2>{job.title}</h2>
+        <div className="flex items-center gap-x-4 mt-4">
+          <div className="flex items-center gap-x-2">
+            <Briefcase />
+            <span>{job.type}</span>
+          </div>
+          <div className="flex items-center gap-x-2">
+            <MapPin />
+            <span>{job.location}</span>
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 py-4">
+        <p>{job.description}</p>
+      </div>
         </main>
      );
 }
