@@ -73,7 +73,7 @@ function JobPage() {
 
   return (
     <main>
-      <Navigation />
+   
       <div>
         <h2>{job.title}</h2>
         <div className="flex items-center gap-x-4 mt-4">

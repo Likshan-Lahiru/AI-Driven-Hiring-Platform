@@ -4,7 +4,7 @@ import Hero from "./components/Hero";
 function HomePage() {
     return ( 
    <main className="container px-4">
-     <Navigation />
+     
       <div>
        <Hero />
        <JobSection />
