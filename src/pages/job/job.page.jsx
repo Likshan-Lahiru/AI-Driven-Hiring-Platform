@@ -1,7 +1,12 @@
 import { useParams } from "react-router-dom";
 import { Briefcase, MapPin } from "lucide-react";
 import Navigation from "@/components/shared/Navigation";
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from "@/components/ui/Separator";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 function JobPage() {
     const jobs = [
@@ -53,13 +58,21 @@ function JobPage() {
 
     const params = useParams();
     const job = jobs.find((job) => job._id === params._id);
-    if(job){
-        console.log(job);
-    } else{
-        console.log("Selected Job is not available")
-    }
     
-    
+
+    const [formData, setFormData] = useState({
+    fullName: "",
+    a1: "",
+    a2: "",
+    a3: "",
+    });
+   
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log(formData);
+    };
+  
         
     
 
@@ -85,7 +98,75 @@ function JobPage() {
         <p>{job.description}</p>
       </div>
       <Separator/>
-      <form className="py-8 flex flex-col gap-y-8"></form>
+      <form className="py-8 flex flex-col gap-y-8">
+      <div className="flex flex-col gap-y-4">
+          <Label>Full Name</Label>
+          <Input
+            value = {formData.fullName}
+            onChange = {(event) => 
+              setFormData({formData, fullName: event.target.va})
+            }
+          />
+        </div>
+        <div>
+          <div className="flex flex-col gap-y-4">
+            <Label>{job.questions[0]}</Label>
+            <Textarea
+              required
+              value={formData.a1}
+              onChange={(event) =>
+                setFormData({ ...formData, a1: event.target.value })
+              }
+            />
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-col gap-y-4">
+            <Label>{job.questions[1]}</Label>
+            <Textarea
+              required
+              value={formData.a2}
+              onChange={(event) =>
+                setFormData({ ...formData, a2: event.target.value })
+              }
+            />
+          </div>
+        </div>
+        <div>
+          <div className="flex flex-col gap-y-4">
+            <Label>{job.questions[2]}</Label>
+            <Textarea
+              required
+              value={formData.a3}
+              onChange={(event) =>
+                setFormData({ ...formData, a3: event.target.value })
+              }
+            />
+          </div>
+        </div>
+        <div className="flex gap-x-4 items-center">
+        <Button type="submit" className="bg-card text-card-foreground w-fit">
+            Submit
+          </Button>
+          <Button
+            type="button"
+            onClick={() =>
+              setFormData({
+                fullName: "",
+                a1: "",
+                a2: "",
+                a3: "",
+              })
+            }
+            className="w-fit"
+            variant="outline"
+          >
+            Clear
+          </Button>
+        </div>
+        
+       
+      </form>
         </main>
      );
 }
