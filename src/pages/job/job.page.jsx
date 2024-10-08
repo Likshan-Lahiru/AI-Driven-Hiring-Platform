@@ -85,6 +85,7 @@ function JobPage() {
         <p>{job.description}</p>
       </div>
       <Separator/>
+      <form className="py-8 flex flex-col gap-y-8"></form>
         </main>
      );
 }
