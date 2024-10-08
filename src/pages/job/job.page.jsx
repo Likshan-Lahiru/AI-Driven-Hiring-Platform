@@ -9,79 +9,72 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 function JobPage() {
-    const jobs = [
-        {
-            _id: "xyz",
-            title: "Intern - Software Engineer",
-            type: "Full-time",
-            location: "Remote",
-            questions: [
-                "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
-                "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
-                "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
-              ],
-        },
-        {
-            _id: "abc",
-            title: "Software Engineer",
-            type: "Full Time",
-            location: "Colombo, Sri Lanka",
-            questions: [
-                "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
-                "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
-                "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
-              ],
-        },
-        {
-            _id: "efg",
-            title: "DevOps Engineer",
-            type: "Full Time",
-            location: "Panadura, Sri Lanka",
-            questions: [
-                "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
-                "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
-                "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
-              ],
-        },
-        {
-            _id: "new4",
-            title: "Project Manager",
-            type: "Full Time",
-            location: "Kalutara",
-            questions: [
-                "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
-                "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
-                "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
-              ],
-        }
-    ];
+  const jobs = [
+    {
+        _id: "xyz",
+        title: "Intern - Software Engineer",
+        type: "Full-time",
+        location: "Remote",
+        questions: [
+            "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
+            "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
+            "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
+          ],
+    },
+    {
+        _id: "abc",
+        title: "Software Engineer",
+        type: "Full Time",
+        location: "Colombo, Sri Lanka",
+        questions: [
+            "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
+            "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
+            "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
+          ],
+    },
+    {
+        _id: "efg",
+        title: "DevOps Engineer",
+        type: "Full Time",
+        location: "Panadura, Sri Lanka",
+        questions: [
+            "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
+            "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
+            "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
+          ],
+    },
+    {
+        _id: "new4",
+        title: "Project Manager",
+        type: "Full Time",
+        location: "Kalutara",
+        questions: [
+            "Share your academic background and highlight key programming concepts you've mastered. How has your education shaped your current tech skill set ?",
+            "Describe your professional development, emphasizing any certifications obtained. How have these certifications enriched your technical abilities, and can you provide an example of their practical application ?",
+            "Discuss notable projects in your programming experience. What challenges did you face, and how did you apply your skills to overcome them? Highlight the technologies used and the impact of these projects on your overall growth as a prefessional ?",
+          ],
+    }
+];
 
-    const params = useParams();
-    const job = jobs.find((job) => job._id === params._id);
-    
+  const params = useParams();
+  const job = jobs.find((job) => job._id === params._id);
 
-    const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     fullName: "",
     a1: "",
     a2: "",
     a3: "",
-    });
-   
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log(formData);
-    };
-  
-        
-    
+  });
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
 
-    return ( 
-        
-        <main className="container px-4">
-        <Navigation />
-             <div>
+  return (
+    <main>
+      <Navigation />
+      <div>
         <h2>{job.title}</h2>
         <div className="flex items-center gap-x-4 mt-4">
           <div className="flex items-center gap-x-2">
@@ -97,17 +90,20 @@ function JobPage() {
       <div className="mt-4 py-4">
         <p>{job.description}</p>
       </div>
-      <Separator/>
-      <form className="py-8 flex flex-col gap-y-8">
-      <div className="flex flex-col gap-y-4">
+      <Separator />
+
+      <form className="py-8 flex flex-col gap-y-8" onSubmit={handleSubmit}>
+        <div className="flex flex-col gap-y-4">
           <Label>Full Name</Label>
           <Input
-            value = {formData.fullName}
-            onChange = {(event) => 
-              setFormData({formData, fullName: event.target.va})
+            required
+            value={formData.fullName}
+            onChange={(event) =>
+              setFormData({ ...formData, fullName: event.target.value })
             }
           />
         </div>
+
         <div>
           <div className="flex flex-col gap-y-4">
             <Label>{job.questions[0]}</Label>
@@ -120,6 +116,7 @@ function JobPage() {
             />
           </div>
         </div>
+
         <div>
           <div className="flex flex-col gap-y-4">
             <Label>{job.questions[1]}</Label>
@@ -132,6 +129,7 @@ function JobPage() {
             />
           </div>
         </div>
+
         <div>
           <div className="flex flex-col gap-y-4">
             <Label>{job.questions[2]}</Label>
@@ -144,8 +142,9 @@ function JobPage() {
             />
           </div>
         </div>
+
         <div className="flex gap-x-4 items-center">
-        <Button type="submit" className="bg-card text-card-foreground w-fit">
+          <Button type="submit" className="bg-card text-card-foreground w-fit">
             Submit
           </Button>
           <Button
@@ -164,11 +163,9 @@ function JobPage() {
             Clear
           </Button>
         </div>
-        
-       
       </form>
-        </main>
-     );
+    </main>
+  );
 }
 
 export default JobPage;
