@@ -47,7 +47,7 @@ The platform features a **user-friendly interface** for job seekers and recruite
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/CleverlyAl.git
+   git clone https://github.com/Likshan-Lahiru/AI-Driven-Hiring-Platform.git
    cd CleverlyAl
    ```
 
@@ -61,9 +61,7 @@ The platform features a **user-friendly interface** for job seekers and recruite
    npm run dev
    ```
 
-## 🤖 AI Model
 
-CleverlyAl uses OpenAI's GPT model to evaluate and classify candidates based on custom fine-tuned data.
 
 ## 📄 License
 
