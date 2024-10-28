@@ -1,14 +1,13 @@
-import Navigation from "@/components/shared/Navigation";
 import { Outlet } from "react-router-dom";
-import JobPage from "@/pages/job/job.page";
+import Navigation from "@/components/shared/Navigation";
+
 function RootLayout() {
-    return ( 
-         <>
-         <Navigation />
-         <Outlet /> 
-         
-     </>
-     );
+  return (
+    <main className="container px-4">
+      <Navigation />
+      <Outlet />
+    </main>
+  );
 }
 
 export default RootLayout;
