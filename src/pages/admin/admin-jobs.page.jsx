@@ -1,10 +1,8 @@
-
-import { useState , useEffect } from "react";
-import JobCard from "../../../components/shared/jobCard";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 import { getJobs } from "@/lib/api/job";
+import JobCard from "@/components/shared/JobCard";
 
-function JobSection() {
+function AdminJobsPage() {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
@@ -26,7 +24,7 @@ function JobSection() {
   if (isLoading) {
     return (
       <section className="py-8">
-        <h2>Available Jobs</h2>
+        <h2>Current Job Posts</h2>
         <p>Loading...</p>
       </section>
     );
@@ -35,7 +33,7 @@ function JobSection() {
   if (isError) {
     return (
       <section className="py-8">
-        <h2>Available Jobs</h2>
+        <h2>Current Job Posts</h2>
         <p className="text-destructive">Error: {error.message}</p>
       </section>
     );
@@ -43,14 +41,14 @@ function JobSection() {
 
   return (
     <section className="py-8">
-      <h2>Available Jobs</h2>
-      <div className="mt-4 flex flex-col gap-y-8">
+      <h2>Current Job Postings</h2>
+      <div className="mt-4 flex flex-col gap-y-4">
         {jobs.map((job) => {
-          return <JobCard key={job._id} job={job} isAdmin ={false} />;
+          return <JobCard key={job._id} job={job} isAdmin={true} />;
         })}
       </div>
     </section>
   );
 }
 
-export default JobSection;
+export default AdminJobsPage;

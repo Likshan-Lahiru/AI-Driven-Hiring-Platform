@@ -10,7 +10,11 @@ import RootLayout from './layouts/root.layouts'
 import { ClerkProvider } from '@clerk/clerk-react'
 import MainLayout from './layouts/main.layout'
 import AdminLayout from './layouts/admin.layout'
-import AdminJobCreatePage from './pages/admin/admin.job-create.page'
+import AdminJobCreatePage from './pages/admin/admin-job-create.page'
+import AdminJobsPage from './pages/admin/admin-jobs.page'
+import AdminJobPage from './pages/admin/admin-job.page'
+import AdminJobApplicationPage from './pages/admin/admin-job-application'
+
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -38,8 +42,20 @@ const router = createBrowserRouter([
         element: <AdminLayout />,
         children: [
           {
+            path: "admin/jobs",
+            element: <AdminJobsPage />,
+          },
+          {
             path: "admin/jobs/create",
             element: <AdminJobCreatePage />,
+          },
+          {
+            path: "admin/job/:_id",
+            element: <AdminJobPage />,
+          },
+          {
+            path: "admin/job/:_id/application/:jobApplicationId",
+            element: <AdminJobApplicationPage />,
           },
         ],
       },

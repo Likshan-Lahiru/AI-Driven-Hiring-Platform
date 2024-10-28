@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 function AdminLayout() {
   const { isLoaded, isSignedIn, user } = useUser();
@@ -24,8 +26,17 @@ function AdminLayout() {
   
   return (
     <div>
-      <h1>Admin</h1>
-      <Outlet />
+      <div className="flex items-center gap-x-4">
+        <Button asChild variant="outline">
+          <Link to="/admin/jobs">View Current Job Posts</Link>
+        </Button>
+        <Button asChild>
+          <Link to="/admin/jobs/create">Create New Job Post</Link>
+        </Button>
+      </div>
+      <div className="mt-4">
+        <Outlet />
+      </div>
     </div>
   );
 }
