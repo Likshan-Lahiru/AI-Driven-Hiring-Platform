@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import { createJobs } from "@/lib/api/job"; 
 
 function AdminJobCreatePage() {
   const [formData, setFormData] = useState({
@@ -14,22 +15,26 @@ function AdminJobCreatePage() {
   });
 
   const [isJobCreated, setIsJobCreated] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Store the job locally
-    console.log("Job created:", formData);
-    
-    // Set a success message
-    setIsJobCreated(true);
-    
-    // Clear form fields
-    setFormData({
-      title: "",
-      type: "",
-      location: "",
-      description: "",
-    });
+
+    console.log("Form data on submit:", formData); // Debug: Check form data before sending
+
+    try {
+      await createJobs(formData);
+      setIsJobCreated(true);
+      setFormData({
+        title: "",
+        type: "",
+        location: "",
+        description: "",
+      });
+    } catch (err) {
+      console.error("Error creating job:", err);
+      setError("Failed to create job.");
+    }
   };
 
   return (
@@ -37,6 +42,7 @@ function AdminJobCreatePage() {
       <div>
         <h2>Admin: Create New Job</h2>
         {isJobCreated && <p className="text-green-500">Job successfully created!</p>}
+        {error && <p className="text-red-500">{error}</p>}
       </div>
       <Separator />
 
