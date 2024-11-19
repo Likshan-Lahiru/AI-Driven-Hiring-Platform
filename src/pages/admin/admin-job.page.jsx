@@ -4,7 +4,7 @@ import { getJobById } from "@/lib/api/job";
 import { getJobApplicationsForJob } from "@/lib/api/jobApplication";
 import { Filter } from "lucide-react";
 import { Briefcase, MapPin } from "lucide-react";
-import JobApplicationCard from "@/components/shared/JobApplicationCard";
+import JobApplicationCard from "../../components/shared/jobApplicationCard";
 
 
 function AdminJobPage() {
