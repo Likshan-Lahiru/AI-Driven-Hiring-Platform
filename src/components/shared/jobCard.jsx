@@ -4,7 +4,7 @@ import {
     CardContent,
     CardTitle,
     CardFooter,
-  } from "@/components/ui/card";
+  } from "../ui/Card";
   import { Briefcase, MapPin } from "lucide-react";
   import { Link } from "react-router-dom";
   
