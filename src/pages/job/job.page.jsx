@@ -1,4 +1,4 @@
-import { Separator } from "@/components/ui/Separator";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -97,7 +97,7 @@ function JobPage() {
       <div className="mt-4 py-4">
         <p>{job.description}</p>
       </div>
-      <Separator />
+    
 
       {submissionStatus && (
         <div className="my-4 p-4 border rounded text-green-700 bg-green-100">
