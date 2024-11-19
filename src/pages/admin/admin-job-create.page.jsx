@@ -1,4 +1,4 @@
-import { Separator } from "@/components/ui/Separator";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -44,7 +44,7 @@ function AdminJobCreatePage() {
         {isJobCreated && <p className="text-green-500">Job successfully created!</p>}
         {error && <p className="text-red-500">{error}</p>}
       </div>
-      <Separator />
+     
 
       <form className="py-8 flex flex-col gap-y-8" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-y-4">

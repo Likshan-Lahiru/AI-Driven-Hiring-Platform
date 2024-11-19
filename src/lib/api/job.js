@@ -15,7 +15,7 @@ export const getJobs = async () => {
      //       console.log(error);
       // })
     
-      const res = await fetch("http://localhost:8000/api/jobs", {
+      const res = await fetch("https://ai-react-project-backend.onrender.com/api/jobs", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const getJobs = async () => {
     };
 
 export const getJobById = async (id) => {
-    const res = await fetch(`http://localhost:8000/api/jobs/${id}`, {
+    const res = await fetch(`https://ai-react-project-backend.onrender.com/api/jobs/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export const getJobById = async (id) => {
     const token = await window.Clerk?.session?.getToken();
     console.log("Sending job data:", data);
   
-    const res = await fetch("http://localhost:8000/api/jobs", {
+    const res = await fetch("https://ai-react-project-backend.onrender.com/api/jobs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
