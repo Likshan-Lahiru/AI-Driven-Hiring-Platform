@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getJobs } from "@/lib/api/job";
-import JobCard from "@/components/shared/JobCard";
+import JobCard from "@/components/shared/JobCard.jsx";
 
 function AdminJobsPage() {
   const [jobs, setJobs] = useState([]);
