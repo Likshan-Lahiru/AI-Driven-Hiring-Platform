@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getJobApplicationById } from "@/lib/api/jobApplication";
 import { useParams } from "react-router-dom";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "../../components/ui/Card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
