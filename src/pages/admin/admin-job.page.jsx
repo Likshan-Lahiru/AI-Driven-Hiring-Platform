@@ -5,7 +5,7 @@ import { getJobApplicationsForJob } from "@/lib/api/jobApplication";
 import { Filter } from "lucide-react";
 import { Briefcase, MapPin } from "lucide-react";
 import JobApplicationCard from "@/components/shared/JobApplicationCard";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/separator.jsx";
 
 function AdminJobPage() {
   const [job, setJob] = useState([]);
