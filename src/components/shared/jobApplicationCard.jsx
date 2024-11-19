@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "../ui/Card";
 import { Link } from "react-router-dom";
 function JobApplicationCard({ _id, jobId, fullName }) {
   return (
