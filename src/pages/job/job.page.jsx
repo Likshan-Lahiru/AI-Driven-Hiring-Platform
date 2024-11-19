@@ -10,7 +10,6 @@ import { Briefcase, MapPin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 
-
 function JobPage() {
   const { isLoaded, isSignedIn, user } = useUser();
 
@@ -18,6 +17,7 @@ function JobPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState(null);
+  const [submissionStatus, setSubmissionStatus] = useState(""); 
 
   const params = useParams();
 
@@ -47,16 +47,29 @@ function JobPage() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    createJobApplication({
-      fullName: formData.fullName,
-      answers: [formData.a1, formData.a2, formData.a3],
-      jobId: job._id,
-    });
+    try {
+      await createJobApplication({
+        fullName: formData.fullName,
+        answers: [formData.a1, formData.a2, formData.a3],
+        jobId: job._id,
+      });
+
+     
+      setFormData({
+        fullName: "",
+        a1: "",
+        a2: "",
+        a3: "",
+      });
+      setSubmissionStatus("Your application was submitted successfully!");
+    } catch (error) {
+      setSubmissionStatus("Failed to submit your application. Please try again."); 
+    }
   };
 
-   if (!isSignedIn) {
+  if (!isSignedIn) {
     return <Navigate to="/sign-in" />;
-   }
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -85,6 +98,12 @@ function JobPage() {
         <p>{job.description}</p>
       </div>
       <Separator />
+
+      {submissionStatus && (
+        <div className="my-4 p-4 border rounded text-green-700 bg-green-100">
+          {submissionStatus}
+        </div>
+      )}
 
       <form className="py-8 flex flex-col gap-y-8" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-y-4">

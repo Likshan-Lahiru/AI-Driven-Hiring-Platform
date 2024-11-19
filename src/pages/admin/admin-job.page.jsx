@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getJobById } from "@/lib/api/job";
 import { getJobApplicationsForJob } from "@/lib/api/jobApplication";
-
+import { Filter } from "lucide-react";
 import { Briefcase, MapPin } from "lucide-react";
 import JobApplicationCard from "@/components/shared/JobApplicationCard";
 import { Separator } from "@/components/ui/separator";
@@ -76,6 +76,21 @@ function AdminJobPage() {
       <div className="mt-4 py-4">
         <p>{job?.description}</p>
       </div>
+      <div className="App">
+      <Filter
+        options={[
+          { label: "Option 1", value: "option1" },
+          { label: "Option 2", value: "option2" },
+          // Add your filter options here
+        ]}
+        onChange={(selectedOptions) => {
+          console.log(selectedOptions);
+        }}
+        onClick={
+          console.log("test")
+        }
+      />
+    </div>
       <Separator />
       <div className="py-8">
         <h2>Job Applications</h2>
