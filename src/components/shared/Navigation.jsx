@@ -7,7 +7,7 @@ function Navigation() {
     <nav className="flex py-12 justify-between items-center">
       <div>
         <Link to={"/"} className="text-4xl font-medium text-underlay-1">
-          HirelyAI
+        CleveryAI Hiring PlatForm
         </Link>
       </div>
       <div className="flex justify-center gap-x-8 items-center">
