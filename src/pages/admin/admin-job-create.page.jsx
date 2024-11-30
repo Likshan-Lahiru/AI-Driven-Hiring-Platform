@@ -20,7 +20,7 @@ function AdminJobCreatePage() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("Form data on submit:", formData); // Debug: Check form data before sending
+    console.log("Form data on submit:", formData); 
 
     try {
       await createJobs(formData);
